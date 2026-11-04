@@ -1,0 +1,26 @@
+{
+  "id": "clothes",
+  "brandName": "Elysian Thread",
+  "shopDomain": "apparel.mock.shop",
+  "storefrontToken": "",
+  "apiVersion": "2026-07",
+  "appId": "com.fashon.app",
+  "scheme": "elysianthread",
+  "theme": {
+    "primary": "#8B5A2B",
+    "background": "#FDFBF7",
+    "text": "#1F1A17",
+    "accent": "#D4A373",
+    "card": "#FFFFFF",
+    "border": "#E8DEC8",
+    "muted": "#7A7067",
+    "white": "#FFFFFF",
+    "error": "#B91C1C",
+    "success": "#15803D"
+  },
+  "features": {
+    "reviews": "mock",
+    "orders": true
+  }
+}
+

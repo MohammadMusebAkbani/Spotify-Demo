@@ -1,0 +1,26 @@
+{
+  "id": "shoes",
+  "brandName": "StridePulse",
+  "shopDomain": "apparel-sneakers.mock.shop",
+  "storefrontToken": "",
+  "apiVersion": "2026-07",
+  "appId": "com.shoes.app",
+  "scheme": "stridepulse",
+  "theme": {
+    "primary": "#0F172A",
+    "background": "#F8FAFC",
+    "text": "#0F172A",
+    "accent": "#0284C7",
+    "card": "#FFFFFF",
+    "border": "#E2E8F0",
+    "muted": "#64748B",
+    "white": "#FFFFFF",
+    "error": "#DC2626",
+    "success": "#059669"
+  },
+  "features": {
+    "reviews": "off",
+    "orders": true
+  }
+}
+

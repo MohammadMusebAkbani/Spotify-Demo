@@ -1,0 +1,34 @@
+{
+  "cli": {
+    "version": ">= 15.0.0"
+  },
+  "build": {
+    "clothes-dev": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "MERCHANT": "clothes"
+      }
+    },
+    "clothes-prod": {
+      "distribution": "store",
+      "env": {
+        "MERCHANT": "clothes"
+      }
+    },
+    "shoes-dev": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "MERCHANT": "shoes"
+      }
+    },
+    "shoes-prod": {
+      "distribution": "store",
+      "env": {
+        "MERCHANT": "shoes"
+      }
+    }
+  }
+}
+
