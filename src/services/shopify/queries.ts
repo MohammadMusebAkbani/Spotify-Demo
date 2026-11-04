@@ -64,6 +64,12 @@ export const GET_PRODUCTS_QUERY = `
           url
           altText
         }
+        images(first: 1) {
+          nodes {
+            url
+            altText
+          }
+        }
         priceRange {
           minVariantPrice {
             amount
@@ -109,6 +115,12 @@ export const GET_COLLECTION_PRODUCTS_QUERY = `
           featuredImage {
             url
             altText
+          }
+          images(first: 1) {
+            nodes {
+              url
+              altText
+            }
           }
           priceRange {
             minVariantPrice {

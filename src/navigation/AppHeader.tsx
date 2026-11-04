@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useMerchant } from '../config/MerchantProvider';
 
 interface AppHeaderProps {
@@ -7,7 +8,9 @@ interface AppHeaderProps {
 }
 
 export const AppHeader: React.FC<AppHeaderProps> = ({ title }) => {
-  const { config, theme, assets } = useMerchant();
+  const { config, theme } = useMerchant();
+
+  const isShoes = config.id === 'shoes';
 
   return (
     <View
@@ -21,14 +24,13 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ title }) => {
       accessibilityRole="header"
     >
       <View style={styles.brandRow}>
-        {assets?.logo ? (
-          <Image
-            source={assets.logo}
-            style={styles.logo}
-            resizeMode="contain"
-            accessibilityLabel={`${config.brandName} Logo`}
+        <View style={[styles.logoBadge, { backgroundColor: theme.primary }]}>
+          <Ionicons
+            name={isShoes ? 'footsteps' : 'shirt-outline'}
+            size={18}
+            color="#FFFFFF"
           />
-        ) : null}
+        </View>
         <View style={styles.titleColumn}>
           <Text style={[styles.brandName, { color: theme.primary }]}>
             {config.brandName}
@@ -54,10 +56,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
-  logo: {
-    width: 32,
-    height: 32,
-    borderRadius: 6,
+  logoBadge: {
+    width: 34,
+    height: 34,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleColumn: {
     justifyContent: 'center',
@@ -72,4 +76,5 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
+
 

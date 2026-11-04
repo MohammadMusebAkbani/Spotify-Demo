@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { useMerchant } from '../config/MerchantProvider';
 import { ProductListItem } from '../services/shopify/types';
 import { formatMoney } from '../utils/format';
@@ -21,7 +21,7 @@ export const ProductCard = React.memo<ProductCardProps>(({ product, onPress }) =
   const isSoldOut = !product.availableForSale;
   const price = product.priceRange.minVariantPrice;
   const formattedPrice = formatMoney(price.amount, price.currencyCode);
-  const imageUrl = product.featuredImage?.url;
+  const imageUrl = product.featuredImage?.url || product.images?.nodes?.[0]?.url;
 
   return (
     <TouchableOpacity
@@ -43,7 +43,9 @@ export const ProductCard = React.memo<ProductCardProps>(({ product, onPress }) =
           <Image
             source={{ uri: imageUrl }}
             style={styles.image}
-            resizeMode="cover"
+            contentFit="cover"
+            transition={200}
+            cachePolicy="memory-disk"
             accessibilityLabel={product.featuredImage?.altText || product.title}
           />
         ) : (

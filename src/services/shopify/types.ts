@@ -42,6 +42,9 @@ export interface ProductListItem {
   handle: string;
   availableForSale: boolean;
   featuredImage: ShopifyImage | null;
+  images?: {
+    nodes: ShopifyImage[];
+  };
   priceRange: PriceRange;
   variants?: {
     nodes: Array<{

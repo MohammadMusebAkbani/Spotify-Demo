@@ -3,13 +3,13 @@ import {
   ActivityIndicator,
   Alert,
   Dimensions,
-  Image,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { ErrorState, Skeleton, VariantPicker } from '../components';
@@ -117,8 +117,10 @@ export const ProductDetailScreen: React.FC = () => {
                 <View key={idx} style={{ width: SCREEN_WIDTH, height: SCREEN_WIDTH }}>
                   <Image
                     source={{ uri: img.url }}
-                    style={styles.image}
-                    resizeMode="cover"
+                    style={{ width: SCREEN_WIDTH, height: SCREEN_WIDTH }}
+                    contentFit="cover"
+                    transition={200}
+                    cachePolicy="memory-disk"
                     accessibilityLabel={img.altText || product.title}
                   />
                 </View>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   FlatList,
-  Image,
   Modal,
   RefreshControl,
   ScrollView,
@@ -10,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import { OrderRecord } from '../adapters/orders';
 import { useMerchant } from '../config/MerchantProvider';
@@ -79,7 +79,12 @@ export const OrdersScreen: React.FC = () => {
                 ]}
               >
                 {line.imageUrl ? (
-                  <Image source={{ uri: line.imageUrl }} style={styles.thumbImage} />
+                  <Image
+                    source={{ uri: line.imageUrl }}
+                    style={styles.thumbImage}
+                    contentFit="cover"
+                    cachePolicy="memory-disk"
+                  />
                 ) : (
                   <Ionicons name="cube-outline" size={16} color={theme.muted || '#94A3B8'} />
                 )}
@@ -227,7 +232,12 @@ export const OrdersScreen: React.FC = () => {
                   ]}
                 >
                   {line.imageUrl ? (
-                    <Image source={{ uri: line.imageUrl }} style={styles.modalLineImg} />
+                    <Image
+                      source={{ uri: line.imageUrl }}
+                      style={styles.modalLineImg}
+                      contentFit="cover"
+                      cachePolicy="memory-disk"
+                    />
                   ) : (
                     <View style={[styles.placeholderImage, { backgroundColor: theme.border || '#E2E8F0' }]}>
                       <Ionicons name="cube-outline" size={20} color={theme.muted || '#94A3B8'} />

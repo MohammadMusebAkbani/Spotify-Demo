@@ -3,12 +3,12 @@ import {
   ActivityIndicator,
   Alert,
   FlatList,
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { QuantityStepper } from '../components';
@@ -122,7 +122,9 @@ export const CartScreen: React.FC = () => {
           <Image
             source={{ uri: imageUrl }}
             style={styles.lineImage}
-            resizeMode="cover"
+            contentFit="cover"
+            transition={200}
+            cachePolicy="memory-disk"
             accessibilityLabel={title}
           />
         ) : (
